@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rusbase 4x</title>
+    <script src="vendor/knockout.js"></script>
+    <script src="vendor/fileSaver.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<style>
+.picture-overlay
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+}
+
+#picture
+{
+    position: relative;
+    width: 830px;
+    height: 450px;
+    color: white;
+    font-family: 'Roboto Slab', serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.lead
+{
+    font-weight: thin;
+    position: absolute;
+    margin: 40px 20px 0;
+    font-weight: 300;
+    font-size: 3rem;
+}
+
+.bottom-info
+{
+    position: absolute;
+    height: 40px;
+    bottom: 20px;
+    left: 20px;
+    line-height: 40px;
+}
+
+.bottom-info__logo,
+.bottom-info__subject
+{
+    display: inline-block;
+    height: 40px;
+    vertical-align: top;
+}
+
+.bottom-info__logo
+{
+    width: 45px;
+    background: url('resources/logo.svg');
+    background-repeat: no-repeat;
+    bottom: 20px;
+    left: 20px;
+}
+
+.bottom-info__subject
+{
+    width: 80px;
+}
+
+.bottom-info__subject > b
+{
+    position: absolute;
+    line-height: initial;
+    margin-top: -4px;
+}
+
+label
+{
+    display: block;
+}
+
+input
+{
+    width: 500px;
+}
+
+textarea
+{
+    width: 500px;
+    height: 150px;
+}
+
+.input-group
+{
+    margin: 10px 0;
+}
+</style>
+
+<div id="picture" data-bind="style: {backgroundImage: 'url(' + picture() + ')'}">
+    <div class="picture-overlay"></div>
+    <h1 class="lead" data-bind="html: lead">11-летнему сыну главы Valve так понравилась еда от стартапа Chef-Steps, что отец решил финансировать проект</h1>
+    <div class="bottom-info">
+        <div class="bottom-info__logo"></div>
+        <div class="bottom-info__subject">
+            <b data-bind="html: subject">Цифра дня</b>
+        </div>
+    </div>
+</div>
+
+<form data-bind="submit: function(){}">
+    <div class="input-group">
+        <label for="picture">Picture</label>
+        <input name="picture" data-bind="textInput: picture">
+    </div>
+    <div class="input-group">
+        <label for="subject">Subject</label>
+        <input name="subject" data-bind="textInput: subject">
+    </div class="input-group">
+
+    <div class="input-group">
+        <label for="lead">Lead</label>
+        <textarea name="lead" data-bind="textInput: lead"></textarea>
+    </div>
+</form>
+
+<button type="submit" data-bind="click: save">Save</button>
+
+<script src="vendor/dom-to-canvas.js"></script>
+<script src="scripts/main.js"></script>
+
+</body>
+</html>
