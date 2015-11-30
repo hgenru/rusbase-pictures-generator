@@ -5,6 +5,7 @@
     <script src="vendor/knockout.js"></script>
     <script src="vendor/fileSaver.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='styles/fonts.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -15,7 +16,7 @@
     width: 100%;
     height: 100%;
     background-color: black;
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 #picture
@@ -24,7 +25,7 @@
     width: 830px;
     height: 450px;
     color: white;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'proxima_nova_ltlight', serif;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -34,7 +35,7 @@
 {
     font-weight: thin;
     position: absolute;
-    margin: 40px 20px 0;
+    margin: 40px 40px 0;
     font-weight: 300;
     font-size: 3rem;
 }
@@ -43,8 +44,8 @@
 {
     position: absolute;
     height: 40px;
-    bottom: 20px;
-    left: 20px;
+    bottom: 40px;
+    left: 40px;
     line-height: 40px;
 }
 
@@ -67,14 +68,16 @@
 
 .bottom-info__subject
 {
+    font-family: 'proxima_nova_rgbold', serif;
     width: 80px;
+    font-size: 1.2em;
 }
 
 .bottom-info__subject > b
 {
     position: absolute;
     line-height: initial;
-    margin-top: -4px;
+    margin-top: -3px;
 }
 
 label

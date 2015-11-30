@@ -1,3 +1,17 @@
+function convertFileToBase64viaFileReader(url, callback){
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = 'blob';
+    xhr.onload = function() {
+      var reader  = new FileReader();
+      reader.onloadend = function () {
+          callback(reader.result);
+      }
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.send();
+}
+
 function Application() {
     this.picture = ko.observable();
     this.lead = ko.observable();
@@ -13,6 +27,7 @@ Application.prototype.save = function() {
     // });
 
     html2canvas(document.getElementById('picture'), {
+        useCORS: true,
         onrendered: function(canvas) {
             canvas.toBlob(function(blob) {
                 saveAs(blob, "pretty image.png");
